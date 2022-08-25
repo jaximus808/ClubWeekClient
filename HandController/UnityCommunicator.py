@@ -38,7 +38,10 @@ class UnityCommunicator():
             self.outPortThread.start();
     
     def FleetServerEnded(self, _packet):
-        self.disconnected = True;
+        print("MEOW")
+        self.hand.connected = False; 
+        self.hand.clientId = -1;
+        #self.disconnected = True;
 
     def SetClientId(self, _packet):
         self.hand.clientId = _packet.ReadInt();

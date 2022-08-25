@@ -3,7 +3,6 @@ import mediapipe as mp;
 import time;
 import UnityCommunicator as U;
 import struct;
-import tkinter as tk; 
 
 #need to thread this shit 
 class Hands:
@@ -44,6 +43,12 @@ class Hands:
 
         bytepacket += bytearray(struct.pack("i",int(targetId)));
         return bytepacket
+
+    def CreateJoinDataDemo(self):
+        bytepacket = bytearray(struct.pack("i",0))
+        bytepacket += bytearray(struct.pack("i",-1));
+
+        return bytepacket
     def CreateData(self, results):
         #if results.multi_hand_landmarks:
             #hand data landmarks is a float
@@ -77,58 +82,58 @@ class Hands:
 
 
 
-def main():
-    window_width = 500
-    window_height = 500
+# def main():
+#     window_width = 500
+#     window_height = 500
 
     
 
-    root = tk.Tk(); 
+#     root = tk.Tk(); 
     
 
-    screen_width = root.winfo_screenwidth();
-    screen_height = root.winfo_screenheight();
+#     screen_width = root.winfo_screenwidth();
+#     screen_height = root.winfo_screenheight();
     
-    center_x = int(screen_width/2 - window_width / 2)
-    center_y = int(screen_height/2 - window_height / 2)
+#     center_x = int(screen_width/2 - window_width / 2)
+#     center_y = int(screen_height/2 - window_height / 2)
 
-    root.geometry(f'{screen_width}x{screen_height}+{center_x}+{center_y}')
-    
-
-    label = tk.Label(root, text="hello",font=("Helvetica", 14)).place(x = 5, y =2);
-    label2 = tk.Label(root, text="balls",font=("Helvetica", 14));
+#     root.geometry(f'{screen_width}x{screen_height}+{center_x}+{center_y}')
     
 
+#     label = tk.Label(root, text="hello",font=("Helvetica", 14)).place(x = 5, y =2);
+#     label2 = tk.Label(root, text="balls",font=("Helvetica", 14));
     
-    root.title("Internet Robot Window");
-    root.mainloop();
-    # t = time.time()
-    # timer = 0
-    # deltaTime = t;
-    # cap = cv2.VideoCapture(0)
-    # while True:
+
+    
+#     root.title("Internet Robot Window");
+#     root.mainloop();
+#     # t = time.time()
+#     # timer = 0
+#     # deltaTime = t;
+#     # cap = cv2.VideoCapture(0)
+#     # while True:
         
-    #     success, img = cap.read()
-    #     img,results = dataReader.handData(img)
+#     #     success, img = cap.read()
+#     #     img,results = dataReader.handData(img)
 
-    #     if dataReader.connected:
-    #         data = dataReader.CreateData(results);
+#     #     if dataReader.connected:
+#     #         data = dataReader.CreateData(results);
             
-    #         sock.SendData(data);
-    #     else:
-    #         t = time.time()
-    #         # print(t)
-    #         # print(deltaTime)
-    #         timer += t - deltaTime; 
-    #         deltaTime = t; 
-    #         if timer > 5:
-    #             print("cock");
-    #             timer = 0; 
-    #             data = dataReader.CreateJoinData();
-    #             sock.SendData(data); 
-    #     if dataReader.connected:
-    #         cv2.putText(img, "connected", (10,70), cv2.FONT_HERSHEY_PLAIN, 3,(255,0,255), 3);
-    #     else:
-    #         cv2.putText(img, "connecting", (10,70), cv2.FONT_HERSHEY_PLAIN, 3,(255,0,255), 3);
-    #     cv2.imshow("Image",img);
-    #     cv2.waitKey(1);  
+#     #         sock.SendData(data);
+#     #     else:
+#     #         t = time.time()
+#     #         # print(t)
+#     #         # print(deltaTime)
+#     #         timer += t - deltaTime; 
+#     #         deltaTime = t; 
+#     #         if timer > 5:
+#     #             print("cock");
+#     #             timer = 0; 
+#     #             data = dataReader.CreateJoinData();
+#     #             sock.SendData(data); 
+#     #     if dataReader.connected:
+#     #         cv2.putText(img, "connected", (10,70), cv2.FONT_HERSHEY_PLAIN, 3,(255,0,255), 3);
+#     #     else:
+#     #         cv2.putText(img, "connecting", (10,70), cv2.FONT_HERSHEY_PLAIN, 3,(255,0,255), 3);
+#     #     cv2.imshow("Image",img);
+#     #     cv2.waitKey(1);  
